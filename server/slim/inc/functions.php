@@ -7,14 +7,13 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 $servername = "localhost";
-$username = "username";
-$password = "password";
+$username = "root";
+$password = "";
 
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+  $conn = new PDO("mysql:host=$servername;dbname=Mathulini_CPA", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Connected successfully";
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
@@ -27,9 +26,9 @@ class Functions{
 		$count = 0;
 		$arr = array();
 		try {
-			global $connect;
-			$stmt->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			global $conn;
 			$stmt = $conn->prepare($query);
+			// $stmt->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$stmt->execute();
 		    
 			// set the resulting array to associative
@@ -38,7 +37,7 @@ class Functions{
 
 			if(count($data) > 0){
 				
-				return json_encode(array("rows" =>count($data) ,"data" =>($data));
+				return json_encode(array("rows" =>count($data) ,"data" =>$data));
 			}else{
 				return false;
 			}
@@ -51,9 +50,9 @@ class Functions{
 	public function executeNonQuery($query){
 
 		try {
-			global $connect;
-			$stmt->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			global $conn;
 			$stmt = $conn->prepare($query);
+			// $stmt->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$stmt->execute();
 		    
 			// set the resulting array to associative
@@ -63,13 +62,11 @@ class Functions{
 			}else{
 				return false;
 			}
-
-			return oci_execute($statement);
-
 		} catch (PDOException $pdoex) {
 			echo "Database Error : " . $pdoex->getMessage();
 		}
 
 	}
+}
 
 ?>

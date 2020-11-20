@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
-<title>Login CPA</title>
+<title>Register CPA</title>
 </head>
 <body>
 <style>
@@ -40,7 +40,7 @@
         margin: 35px auto;
         padding:20px;
         width: 70%;
-        height: 300px;
+        height: 400px;
         background-color: rgba(204, 204, 204, 0.507);
         border-radius: 20px;
         z-index: 2;
@@ -55,12 +55,15 @@
             Mathulini CPA
         </div>
         <div class="form-wraaper">
-            <form action="server/slim/inc/apis/login.php" method="post" id="login">
-                <input name="username" type="text" class="form-control" placeholder="username/email" />
-                <input name="password" type="password" class="form-control" placeholder="password" />
+            <form action="../server/slim/inc/apis/register.php" method="post" id="register">
+                <input name="fname" type="text" class="form-control" placeholder="First Name" />
+                <input name="lname" type="text" class="form-control" placeholder="Last Name" />
+                <input name="username" type="text" class="form-control" placeholder="Username" />
+                <input name="password" type="password" class="form-control" placeholder="Password" />
+                <input name="confirmPassword" type="password" class="form-control" placeholder="Confirm Password" />
                 <div class="btn-wrapper">
-                    <input type="submit" name="login" class="btn btn-primary" value="Login" />
                     <input type="submit" name="register" class="btn btn-default" value="Register" />
+                    <input type="submit" name="login" class="btn btn-primary" value="Login" />
                 </div>
             </form>
         </div>
