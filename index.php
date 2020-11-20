@@ -55,12 +55,12 @@
             Mathulini CPA
         </div>
         <div class="form-wraaper">
-            <form action="#" id="login">
-                <input type="text" class="form-control" placeholder="username/email" />
-                <input type="password" class="form-control" placeholder="password" />
+            <form action="#" method="post" id="login">
+                <input name="username" type="text" class="form-control" placeholder="username/email" />
+                <input name="password" type="password" class="form-control" placeholder="password" />
                 <div class="btn-wrapper">
-                    <input type="button" class="btn btn-primary" value="Login" />
-                    <input type="button" class="btn btn-default" value="Register" />
+                    <input type="button" name="login" class="btn btn-primary" value="Login" />
+                    <input type="button" name="register" class="btn btn-default" value="Register" />
                 </div>
             </form>
         </div>
