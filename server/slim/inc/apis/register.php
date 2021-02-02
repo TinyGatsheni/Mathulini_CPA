@@ -9,16 +9,56 @@ if (isset($_POST["register"])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $c_password = $_POST['confirmPassword'];
+    $gender_id = $_POST['gender_id'];
+    $id_number = $_POST['id_number'];
 
     if ($password == $c_password) {
-        $sql = "INSERT INTO users VALUES('','$fname','$lname','$username',md5('$password'),'1')";
+        $sql = "INSERT INTO `users` 
+                        (`user_id`,
+                         `firstname`,
+                         `lastname`,
+                         `username`,
+                         `password`,
+                         `id_number`,
+                         `bnk_details`,
+                         `dob`,
+                         `address`,
+                         `membership`,
+                         `dividends`,
+                         `benefits`,
+                         `declaration`,
+                         `acceptance`,
+                         `role_id`,
+                         `status_active`,
+                         `contact`,
+                         `gender_id`) 
+                         VALUES (
+                            NULL,
+                          '$fname',
+                          '$lname',
+                          '$username',
+                           MD5('$password'),
+                          '$id_number',
+                          '$bnk_details',
+                          '$dob',
+                          '$address',
+                          '$membership',
+                          '$dividends',
+                          '$benefits',
+                          '$ddeclaration',
+                          '$acceptance',
+                          '1',
+                          '1',
+                          '000-000-0000',
+                          '$gender_id');";
 
         $res = $func->executeNonQuery($sql);
 
         if ($res) {
             echo "Insert successfully";
+            header("location:../../../../index.php");
         } else {
-            echo "Error";
+            header("location:../../../../pages/404.php");
         }
     }else{
         echo "passwords dont match";

@@ -2,7 +2,7 @@
 
 <?php
 
-session_start();
+// session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
@@ -20,8 +20,16 @@ try {
 
 class Functions{
 
-	//Function to get all files form the dwdev.dev_log_sapgl table for a specific date
-	
+	//CRUD
+
+	/**
+	 * CREATES
+	 * READS
+	 * UPDATES
+	 * DELETES
+	 */
+
+	//selects
 	public function executeQuery($query){
 		$count = 0;
 		$arr = array();
@@ -47,6 +55,7 @@ class Functions{
 		}
 	}
 
+	//inserts, deletes, updates
 	public function executeNonQuery($query){
 
 		try {
